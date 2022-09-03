@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <label for="name">Click: </label>
+    <input type="checkbox" name="" id="">
+    <button id="btn" onclick="doclick()"> Click</button>
+    <ul>
+        <li class="list-green"><a href="#">Green</a></li>
+        <li>Yellow</li>
+        <li>Red</li>
+    </ul>
+    <script>
+        // alert('hi');
+        var heading=document.firstElementChild.lastElementChild.firstElementChild;
+        var bool=true
+
+        var mybutton=document.getElementById("btn");
+        // heading.style.color="red";
+        // Ways of selecting elemnts
+        /* 1)  querySelector searches for the selector in the entire document, this is universal we can use this to     select by class, by id etc
+            Ex: querySelector(.class), querySelector(#id)
+            this only return the first match
+           2)  gelElementsByTagName searches for the particular tagname in the entire document, returns array
+           3)  getElementsByClassName selects the element with the specified class name, returns array
+           Note: the elemetns is plural thus it returns an array
+           4)  getElementById return the element with the specified id
+           5) to get multiple selctors with querySelector use querySelectorAll and this returns an array
+
+           -----------------------------------------------------------------
+           We can add or remove classes which can help us in styling our elements
+           using
+           document.querySelector("element").classList.add("classname")
+           document.querySelector("element").classList.remove("classname")
+
+           -----------------------------------------------------------------
+           Manipulating attributes such as (href,class etc.)
+           1) to list all attributes
+                Ex: document.querySelector(tag).attributes;
+           2) to get the value of specific attribute
+                Ex: document.querySelector("a").getAttribute("href")
+           3) to set the value of specific attribute
+                Ex: document.querySelector("a").setAttribute("href","new value for the attribute")
+                same thing we can do for adding a new attribute
+        */
+
+
+
+        // to click an element
+        function doclick() {
+            // getElementsByTagName - selecting a item in list of items
+            // document.getElementsByTagName("li")[2].style.color="red";
+
+            // getElementsByClassName - looking for an element with the classname
+            // document.getElementsByClassName("list-green")[0].style.color="red";
+
+            // getElementById - selects the element with the specified id
+            // document.getElementById("btn").innerHTML="Clicked";
+
+            // to select an embedded selector use query selector and specify the selector in hierarchical manner
+            // document.querySelector("ul li a").remove();
+            
+            // alert(listitem[0].style.color="red");
+            heading.innerHTML="Something different";
+            if(bool){
+                heading.style.color="green";
+                bool=!bool;
+            }else {
+                heading.style.color="red";
+                bool=!bool;
+            }
+            mybutton.style.backgroundColor="red";
+            // document.querySelector(".list-green").classList.remove("list-green");
+            // document.querySelector("ul li").classList.add("list-green1");
+            // or simple toggle the class which we want to add
+            // document.querySelector("li").classList.toggle("list-green1");
+
+            document.querySelector("a").setAttribute("href","https://www.google.com/");
+            document.querySelector("a").setAttribute("target","");
+            console.log(document.querySelector("a").getAttribute("href"));
+
+        }
+    </script>
+</body>
+</html>
