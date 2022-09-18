@@ -1,0 +1,100 @@
+body{
+    font-family: "Monteserrat";
+}
+
+#title, h1{
+    background-color: #ff4c68;
+    color: #fff;
+}
+#title h1{
+    font-family: "Monteserrat-Black";
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+.navbar{
+    padding: 3.5rem 0;
+}
+
+.navbar-brand{
+    font-family: "Monteserrat";
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Download Buttons */
+
+.download-button{
+    margin: 5% 3% 5% 0;
+}
+
+/* Title Image */
+.title-image{
+    width: 60%;
+}
+
+/* Features */
+.feature-box{
+    text-align: center;
+    /* padding: 5%; */
+}
+.feature-box p{
+    padding: 0 8%;
+}
+
+.feature-box h3{
+    font-family: "Montserrat-Bold";
+    font-weight: bold;
+}
+
+.icons{
+    /* font-size: 2.5rem; */
+    padding: 4%;
+    color: #ef8172;
+}
+
+#features{
+    padding: 7% 15%;
+}
+.icons:hover{
+    color: #ff4c68;
+}
+
+/* Testimonials */
+#testimonials{
+    background-color: #ef8172;
+    text-align: center;
+    color: #fff;
+}
+#testimonials h2{
+    font-family: "Montserrat-Bold";
+    font-size: 3rem;
+}
+
+.testimonial-image{
+    width: 12%;
+    border-radius: 100%;
+    margin: 2%;
+}
+
+/* Press */
+#press{
+    background-color: #ef8172;
+    padding: 3%;
+    text-align: center;
+}
+#press img{
+    width: 15%;
+    margin: 0 20px;
+}
+
+.carousel-item{
+    padding: 7% 15%;
+}
+
+/* Pricing Section */
+
+#pricing{
+    padding: 5% 15%;
+    text-align: center;
+}
