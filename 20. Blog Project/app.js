@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const loadsh = require("lodash")
 
 const app = express();
 
@@ -29,9 +30,9 @@ app.get("/", function (req, res) {
 });
 
 app.get("/posts/:postId",function(req,res){
-    let mypost=req.params.postId;
+    let mypost=loadsh.lowerCase(req.params.postId);
     for(let i=0; i<blogs.length; i++){
-        if(mypost===blogs[i].title) console.log("Match found!");
+        if(mypost===loadsh.lowerCase(blogs[i].title)) console.log("Match found!");
     }
     // console.log(req.params.postId);
 })
