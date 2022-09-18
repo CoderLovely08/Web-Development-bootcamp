@@ -8,5 +8,18 @@
 </head>
 <body>
     <h1>It's <%= day %></h1>
+    <ul>
+        <li>Study TOC</li>
+        <li>Practice DSA</li>
+        <li>Buy notebooks</li>
+        <% for(let i=0; i<newListItems.length; i++){ %>
+            <li><%= newListItems[i] %></li>
+        <% } %>
+    </ul>
+
+    <form action="/" method="post">
+        <input type="text" name="newInput" placeholder="Enter new todo item" required>
+        <button type="submit" name="button" class="btn btn-primary">Add</button>
+    </form>
 </body>
 </html>
