@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname+"/date.js")
 
 const app = express();
 // install ejs module and add below line in your code
@@ -29,14 +30,7 @@ app.get("/", function (req, res) {
             default: console.log("Error!");
         }
     */
-    let today = new Date();
-    let options = {
-        weekday: "long",
-        day: "numeric",
-        month: "long"
-    };
-    let day = today.toLocaleString("en-US", options);
-
+    let day = date.getDay();
     res.render('list', { listTitle: day, newListItems: items });
 });
 
