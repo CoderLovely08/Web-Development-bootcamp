@@ -25,9 +25,16 @@ app.use(express.static("public"));
                 Home route
   -------------------------------------------*/
 app.get("/", function (req, res) {
-    res.render("home", { content: homeStartingContent });
+    res.render("home", { content: homeStartingContent, blogs: blogs });
 });
 
+app.get("/posts/:postId",function(req,res){
+    let mypost=req.params.postId;
+    for(let i=0; i<blogs.length; i++){
+        if(mypost===blogs[i].title) console.log("Match found!");
+    }
+    // console.log(req.params.postId);
+})
 
 /*-------------------------------------------
                 About route
