@@ -1,14 +1,15 @@
-const express = require("express")
-const bodyParser = require("body-parser")
+const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 // install ejs module and add below line in your code
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 // create a view directory, view engine will first see the template files in that directory to load up
-var items = ["Study TOC","Practice DSA","Buy notebooks"];
-
+let items = ["Study TOC", "Practice DSA", "Buy notebooks"];
+let workList = [];
 
 app.get("/", function (req, res) {
     // similar to django template rendering
@@ -28,26 +29,32 @@ app.get("/", function (req, res) {
             default: console.log("Error!");
         }
     */
-    var today = new Date();
-    var options = {
+    let today = new Date();
+    let options = {
         weekday: "long",
         day: "numeric",
         month: "long"
     };
+    let day = today.toLocaleString("en-US", options);
 
-    var day = today.toLocaleString("en-US", options);
-
-
-
-    res.render('list', { day: day, newListItems: items });
+    res.render('list', { listTitle: day, newListItems: items });
 });
 
 app.post("/", function (req, res) {
     var item = req.body.newInput;
-    items.push(item);
-    res.redirect("/");
+    if (req.body.button === "Work") {
+        workList.push(item);
+        res.redirect("/work");
+    }else{
+        items.push(item);
+        res.redirect("/");
+    }
 });
 
+
+app.get("/work", function (req, res) {
+    res.render('list', { listTitle: "Work List", newListItems: workList });
+});
 
 
 app.listen(3000, function () {
