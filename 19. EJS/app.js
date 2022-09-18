@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // create a view directory, view engine will first see the template files in that directory to load up
-var items = [];
+var items = ["Study TOC","Practice DSA","Buy notebooks"];
 
 
 app.get("/", function (req, res) {
