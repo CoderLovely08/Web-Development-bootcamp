@@ -293,3 +293,8 @@ function calculateBMI(weight,height) {
     return weight/Math.pow(height,2);
 }
 console.log("Your BMI is: "+calculateBMI(62,1.79));
+
+var fullname = "Lovely sharma";
+var fname= fullname.split(" ")[0];
+var lname= fullname.split(" ")[1];
+console.log(fname);
