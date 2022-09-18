@@ -19,7 +19,7 @@ app.use(express.static("public"));
                 Home route
   -------------------------------------------*/
 app.get("/", function (req, res) {
-    res.render("home", {content: homeStartingContent});
+    res.render("home", { content: homeStartingContent });
 });
 
 
@@ -27,14 +27,14 @@ app.get("/", function (req, res) {
                 About route
   -------------------------------------------*/
 app.get("/about", function (req, res) {
-    res.render("about", {content: aboutContent});
+    res.render("about", { content: aboutContent });
 });
 
 /*-------------------------------------------
                 Contact route
   -------------------------------------------*/
 app.get("/contact", function (req, res) {
-    res.render("contact", {content: contactContent});
+    res.render("contact", { content: contactContent });
 });
 
 /*-------------------------------------------
@@ -44,6 +44,9 @@ app.get("/compose", function (req, res) {
     res.render("compose");
 });
 
+app.post("/compose", function (req, res) {
+    console.log(req.body.composeContent);
+});
 
 
 
