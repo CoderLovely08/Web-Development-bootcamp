@@ -7,7 +7,9 @@
     <% for(let i=0; i<blogs.length;i++){ %>
         <h1><%= blogs[i].title %></h1>
         <p>
-            <%= blogs[i].content.substring(0,100) %> ...
+            <%= blogs[i].content.substring(0,100) %> ... 
+            <% let linkUrl="posts/"+blogs[i].title %>
+            <a href=<%= linkUrl  %>>Read more</a> 
         </p>
     <% } %>
 </div>
