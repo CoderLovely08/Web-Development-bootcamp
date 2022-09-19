@@ -35,7 +35,7 @@ app.get("/posts/:postId", function (req, res) {
         let compareTitle = loadsh.lowerCase(blogs[i].title);
         if (postTitle === compareTitle) {
             let postContent = blogs[i].content;
-            res.render("post", { title: postTitle, content: postContent });
+            res.render("post", { title: req.params.postId, content: postContent });
         }
         else console.log("No Match found!");
     }
