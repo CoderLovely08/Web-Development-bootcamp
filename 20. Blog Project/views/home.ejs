@@ -8,8 +8,7 @@
         <h1><%= blogs[i].title %></h1>
         <p>
             <%= blogs[i].content.substring(0,100) %> ... 
-            <% let linkUrl="posts/"+blogs[i].title %>
-            <a href=<%= linkUrl  %>>Read more</a> 
+            <a href=<%= blogs[i].linkUrl  %>>Read more</a> 
         </p>
     <% } %>
 </div>
