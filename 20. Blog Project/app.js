@@ -65,7 +65,8 @@ app.get("/compose", function (req, res) {
 app.post("/compose", function (req, res) {
     let blogItem = {
         title: req.body.blogTitle,
-        content: req.body.blogContent
+        content: req.body.blogContent,
+        linkUrl: "/posts/"+req.body.blogTitle
     }
     blogs.push(blogItem);
     res.redirect("/");
