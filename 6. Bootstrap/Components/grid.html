@@ -21,29 +21,49 @@
         .col{
             background-color: aqua;
             text-align: center;
+            border: 1px solid;
+        }
+        .bg1{
+            background: #abd324;
+            border: 1px solid;
+        }
+        .bg2{
+            background: #dad324;
+            border: 1px solid;
         }
     </style>
 </head>
 
 <body>
+    <!-- 
+        There exists a grid of size 12 columns
+     -->
+     <!-- This distributes each div in column -->
     <div class="row">
-        <div class="col" style="background-color:blue; border: 1px solid;">1</div>
-        <div class="col" style="background-color:blue; border: 1px solid;">1</div>
-        <div class="col" style="background-color:blue; border: 1px solid;">1</div>
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
     </div>
-    
+
+    <!-- 
+        lg is for large screens and num denotes that how much space you want in that particular screen size.
+        This will create two col divs, adding the third one will result in pushing it to the next row
+    -->
+    <!-- 
+        To accomodate third col we need to shrink each col with a value
+     -->
     <div class="row">
-        <div class="col-6" style="background-color:green;">2</div>
+        <div class="col-lg-6 bg1">1</div>
+        <div class="col-lg-6 bg2">2</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 bg1">1</div>
+        <div class="col-lg-6 bg2">2</div>
+        <div class="col-lg-3 bg1">2</div>
     </div>
     
     <!-- responsive row -->
-    <!-- lg is for large screens and num denotes that how much space you want in that particular screen size -->
-    <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color: cadetblue; border: 1px solid ;">4</div>
-        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color: cadetblue; border: 1px solid ;">4</div>
-        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color: cadetblue; border: 1px solid ;">4</div>
-        <div class="col-lg-3 col-md-4 col-sm-6" style="background-color: cadetblue; border: 1px solid ;">4</div>
-    </div>
+
 </body>
 
 </html>
