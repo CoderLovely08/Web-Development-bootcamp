@@ -314,3 +314,14 @@ Fruit.insertMany([watermelon, kiwi], function (err) {
     else console.log("Saved to database successfully!");
 });
   ```
+
+## 3. To read from the database
+- It's pretty easy to read from the database using mongoose we use our model name with find method and a callback method. The working example is given below
+
+```javascript
+Fruit.find(function (err, result) {
+    if (err) console.log(err);
+    else console.log(result);
+});
+// Since we are not filtering data we get all the rows.
+```

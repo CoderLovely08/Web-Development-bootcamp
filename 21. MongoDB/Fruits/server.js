@@ -30,6 +30,7 @@ const fruit = new Fruit(
     }
 );
 
+// creating new model to insert many at a time
 const watermelon = new Fruit(
     {
         _id: 5,
@@ -48,10 +49,23 @@ const kiwi = new Fruit(
     }
 );
 
-Fruit.insertMany([watermelon, kiwi], function (err) {
+// ---------------------------------------------
+//               Insert many at a time
+// ---------------------------------------------
+// Fruit.insertMany([watermelon, kiwi], function (err) {
+//     if (err) console.log(err);
+//     else console.log("Saved to database successfully!");
+// });
+
+
+// ---------------------------------------------
+//            To read from the database
+// ---------------------------------------------
+Fruit.find(function (err, result) {
     if (err) console.log(err);
-    else console.log("Saved to database successfully!");
+    else console.log(result);
 });
+// This will return all the rows
 
 
 // save the data to the database
