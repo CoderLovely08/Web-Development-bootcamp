@@ -326,3 +326,27 @@ Fruit.find(function (err, result) {
 // Since we are not filtering data we get all the rows.
 ```
 - Since, the result we get back is and array of objects we can apply the javascript methods to go through each and every data
+
+- ### Small Exercise:
+Print only the names of the fruits
+```javascript
+// Approach 1
+Fruit.find(function (err, result) {
+    if (err) console.log(err);
+    else {
+        for (let i = 0; i < result.length; i++) {
+            console.log(result[i].name);
+        }
+    }
+});
+
+// Approach 2
+Fruit.find(function (err, result) {
+    if (err) console.log(err);
+    else {
+        result.forEach(function (result) {
+            console.log(result.name);
+        });
+    }
+});
+```

@@ -63,7 +63,11 @@ const kiwi = new Fruit(
 // ---------------------------------------------
 Fruit.find(function (err, result) {
     if (err) console.log(err);
-    else console.log(result);
+    else {
+        result.forEach(function (result) {
+            console.log(result.name);
+        });
+    }
 });
 // This will return all the rows
 
