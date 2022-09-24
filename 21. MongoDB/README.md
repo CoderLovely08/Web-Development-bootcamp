@@ -325,4 +325,4 @@ Fruit.find(function (err, result) {
 });
 // Since we are not filtering data we get all the rows.
 ```
-- Since, the result we get back is and array of objects we can apply the javascript methods to go through each and every data 
+- Since, the result we get back is and array of objects we can apply the javascript methods to go through each and every data
