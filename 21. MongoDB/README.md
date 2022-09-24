@@ -124,4 +124,36 @@ db.shop.insert(
 )
 ```
 
-Here we are embedding a list of two documents in our review feild
+Here we are embedding a list of two documents in our review field
+
+## 5. Connection with MongoDB using Node
+- Install the native mongodb driver using
+    ```bash
+    $ npm i mongodb
+    ```
+
+- Now, in your app.js import the driver and write the below code
+
+```javascript
+const MongoClient = require("mongodb").MongoClient;
+const assert = require("assert");
+
+// Connection URL
+const url = "mongodb://localhost:27017";
+
+// Database name
+const dbName = "fruitsDB";
+
+// Create a new MongoClient
+const client = new MongoClient(url, {useNewUrlParser: true});
+
+// Use connect method to connect to the server
+client.connect(function(err){
+    assert.equal(null,err);
+    console.log("Connected to Databsae Successfully!");
+    
+    const db = client.db(dbName);
+    client.close();
+});
+```
+- Here the dbname is our database name to which we are going to connect, if the database does not exists it will create one.
