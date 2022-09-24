@@ -46,6 +46,13 @@ this will display all the existing databases in our sysetm.
 ### 2. Use databse
 ```bash
 $ use database-name
+# Ex: use fruitsDb
+
+# To delete a database, switch to the database using use dbname and then type
+$ db.dropDatabase()
+# Ex:
+# > use fruitsDb
+# > db.dropDatabase()
 ```
 this will help you enter the database if exists or it will create one
 
