@@ -225,3 +225,25 @@ insertDocuments(db, function () {
  Now, as we can see there's a lot of code we are doing which is kind bit of a pain for us if we want to build an application quickly.
 
  Now, we will discuss the industry standards to work with Mongo which is very popular among the developers.
+
+<!-- ---------------------------------------------------------- -->
+<!--                Starting Mongoose section                   -->
+<!-- ---------------------------------------------------------- -->
+ ---
+ # Mongoose 
+ 1. Install the mongoose package using
+ ```bash
+ $ npm i mongoose
+ ```
+ and import it into the project
+
+ ```javascript
+const mongoose = require("mongoose");
+
+// pass the url to the connect function
+// fruitsDB is our db name replace it with the db name which you want to connect with
+mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewUrlParser: true });
+
+console.log("Connected!!");
+ ```
+ 
