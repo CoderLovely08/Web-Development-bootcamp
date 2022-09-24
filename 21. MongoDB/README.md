@@ -157,3 +157,64 @@ client.connect(function(err){
 });
 ```
 - Here the dbname is our database name to which we are going to connect, if the database does not exists it will create one.
+
+
+## 6. Inserting into database using Node
+- To insert new records paste the following code below the connection code
+```javascript
+const insertDocuments = function (db, callback) {
+    // get the documents collection
+    const collection = db.collection("fruits");
+    // Inserting new documents
+    collection.insertMany([
+        {
+            _id: 1,
+            name: "Apple",
+            price: 5,
+            qty: 100
+        },
+        {
+            _id: 2,
+            name: "Banana",
+            price: 3,
+            qty: 50
+        }
+    ], function (err, result) {
+        console.log("Records inserted successsfully");
+        callback(result);
+    });
+};
+```
+- Here we are inserting 2 rows using the insertMany function
+- Then we replace the client.close() code with the following
+```javascript
+insertDocuments(db, function () {
+        client.close();
+});
+ ```
+
+ ## 7.  Reading from database using Node
+ - Reading is similar to inserting we use db.collection.find() query to read the records
+ - Follow along the below code in your app.js
+
+ ```javascript
+ const findDocuments = function (db, callback) {
+    // which collection to read from
+    const collection = db.collection('fruits');
+    // read some documents
+    collection.find({}).toArray(function (err, result) {
+        console.log(result);
+        callback(result);
+    });
+};
+ ```
+ - and call the client.close(); from the findDocuments();
+ ```javascript
+ findDocuments(db,function(){
+     client.close();
+ });
+ ```
+
+ Now, as we can see there's a lot of code we are doing which is kind bit of a pain for us if we want to build an application quickly.
+
+ Now, we will discuss the industry standards to work with Mongo which is very popular among the developers.
