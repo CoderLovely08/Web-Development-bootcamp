@@ -270,7 +270,8 @@ const fruitsSchema = new mongoose.Schema({
 
 // Create a model out of the schema
 // @param1 Strictly uppercase singular collection name
-// internally it will be converted to what we want 
+// internally it will be converted to what we want into plural
+// Ex: Fruits -> fruits, Person -> people
 // @param2 is the schema
 const Fruit = mongoose.model('Fruit', fruitsSchema);
 
@@ -285,3 +286,31 @@ const fruit = new Fruit({
 // save the data to the database
 fruit.save();
  ```
+
+ - To insert in bulk
+  Create models for each row item and pass the references as a list to the insertMany function
+  ```javascript
+  
+const watermelon = new Fruit(
+    {
+        _id: 5,
+        name: "Watermelon",
+        price: 3,
+        qty: 200
+    }
+);
+
+const kiwi = new Fruit(
+    {
+        _id: 6,
+        name: "Kiwi",
+        price: 12,
+        qty: 40
+    }
+);
+
+Fruit.insertMany([watermelon, kiwi], function (err) {
+    if (err) console.log(err);
+    else console.log("Saved to database successfully!");
+});
+  ```

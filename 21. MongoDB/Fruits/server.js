@@ -23,12 +23,37 @@ const Fruit = mongoose.model('Fruit', fruitsSchema);
 // insert the data we want
 const fruit = new Fruit(
     {
-    _id: 4,
-    name: "Mangoes",
-    price: 5,
-    qty: 90
+        _id: 4,
+        name: "Mangoes",
+        price: 5,
+        qty: 90
     }
 );
 
+const watermelon = new Fruit(
+    {
+        _id: 5,
+        name: "Watermelon",
+        price: 3,
+        qty: 200
+    }
+);
+
+const kiwi = new Fruit(
+    {
+        _id: 6,
+        name: "Kiwi",
+        price: 12,
+        qty: 40
+    }
+);
+
+Fruit.insertMany([watermelon, kiwi], function (err) {
+    if (err) console.log(err);
+    else console.log("Saved to database successfully!");
+});
+
+
 // save the data to the database
-fruit.save();
+// fruit.save();
+
