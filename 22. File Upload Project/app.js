@@ -3,7 +3,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const fileupload = require("express-fileupload")
+// const imgur = require("imgur")
+// const imgur = require("imgur")
+const imgur = require('imgur-uploader');
+const fs = require("fs")
+const fileupload = require("express-fileupload");
+const { log } = require("console");
 // const loadsh = require("lodash")
 
 const app = express();
@@ -36,7 +41,11 @@ app.post("/upload", function (req, res) {
     myfile.mv(uploadPath, function (err) {
         if (err) console.log("Error!");
         console.log("Saved to folder");
-    })
+
+        imgur(fs.readFileSync(uploadPath)).then(data=>{
+            console.log(data);
+        });
+    });
 })
 
 
