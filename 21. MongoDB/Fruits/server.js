@@ -69,9 +69,8 @@ Fruit.find(function (err, result) {
         });
     }
 });
-// This will return all the rows
+// This will return all the rows and print the name of each item
 
 
 // save the data to the database
 // fruit.save();
-
