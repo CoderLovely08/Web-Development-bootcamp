@@ -168,5 +168,51 @@ ReactDOM.render(content, roolElement);
     ![Basic App](images/basic4.png)
 
 
+### 5. Exporting components
+
+- index.js
+```javascript
+// Import the following to get started
+import React from "react";
+import ReactDOM from "react-dom";
+
+// import the component function and call it later
+import { headingComponent } from "./heading";
+
+// Call the function
+headingComponent();
+```
+
+- heading.jsx
+```javascript
+// Import the following to get started
+import React from "react";
+import ReactDOM from "react-dom";
+
+function headingComponent() {
+  // Target the root element
+  const roolElement = document.getElementById("root");
+
+  // Only one element can go in the top body, so nest everything inside a div
+  const content = (
+    <div>
+      <h1>This is a heading component</h1>
+    </div>
+  );
+
+  // To render content use the ReactDOM with render() method which takes 2 params
+  // @param 1 - What to display (your content)
+  // @param 2 - Where to display (your target element)
+  return ReactDOM.render(content, roolElement);
+}
+
+module.exports = {
+  headingComponent
+}
+```
+
+- Output
+
+    ![Basic App](images/basic5.png)
 
 
