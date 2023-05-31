@@ -213,3 +213,54 @@ export default Heading
     ![Basic App](images/basic5.png)
 
 
+### 6. Understanding Import and Export keywords
+- math.js
+```javascript
+const pi = 3.14;
+
+function doublePi(){
+  return pi * 2;
+}
+
+function triplePi(){
+  return pi * 3;
+}
+
+// So when we write default export it exports the function,member,component on default basis, means whenever you import this module the default exported thing will be imported.
+// There can only be one single default export
+export default pi;
+
+export {
+  doublePi,
+  triplePi
+}
+```
+
+- index.js
+```javascript
+// While importing from our very own math module we are not specifying what to import so we will be getting what is being exported on the default basis, thus we end up getting the value of pi which we have stored 
+import myvalue from './math'
+import {doublePi, triplePi} from './math'
+// or 
+import * as pi from './math'
+
+/* 
+
+  // ------------------------------------
+  // Points to remember
+  // ------------------------------------
+   1. The myvalue holds the value of pi in it that is getting exported from the math module
+   2. you can use any name while importing a default module
+   3. But in case of non-default exports, names really do matter 
+   
+*/
+console.log(myvalue);   // 3.14
+console.log(doublePi());   // 6.28
+
+// ---------------------------------------
+console.log(pi.default);   // 3.14
+console.log(pi.doublePi());   // 6.28
+
+
+```
+
