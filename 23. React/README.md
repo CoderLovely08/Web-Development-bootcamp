@@ -176,39 +176,36 @@ ReactDOM.render(content, roolElement);
 import React from "react";
 import ReactDOM from "react-dom";
 
-// import the component function and call it later
-import { headingComponent } from "./heading";
+// import the component and include it wherever you want
+import Heading  from "./heading";
 
-// Call the function
-headingComponent();
+// Target the root element
+const roolElement = document.getElementById("root");
+
+// Only one element can go in the top body, so nest everything inside a div
+const content = (
+  <div>
+    {/* include the component as many times you want */}
+    <Heading />
+  </div>
+);
+
+ReactDOM.render(content, roolElement);
+
 ```
 
 - heading.jsx
 ```javascript
 // Import the following to get started
 import React from "react";
-import ReactDOM from "react-dom";
 
-function headingComponent() {
-  // Target the root element
-  const roolElement = document.getElementById("root");
-
-  // Only one element can go in the top body, so nest everything inside a div
-  const content = (
-    <div>
-      <h1>This is a heading component</h1>
-    </div>
-  );
-
-  // To render content use the ReactDOM with render() method which takes 2 params
-  // @param 1 - What to display (your content)
-  // @param 2 - Where to display (your target element)
-  return ReactDOM.render(content, roolElement);
+// Create a funtion which returns the component
+function Heading() {
+//  return the html
+  return <h1>This is a heading component</h1>
 }
-
-module.exports = {
-  headingComponent
-}
+// Export it as default because you're going to use this as default 
+export default Heading
 ```
 
 - Output
